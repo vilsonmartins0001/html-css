@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabelas</title>
+    <style>
+        table{
+            width: 500px;
+            border: 1px solid black;
+            border-collapse: collapse;
+            font-family: Arial, Helvetica, sans-serif;
+            position: relative;
+        }
+        caption{
+            font-size: 1.5em;
+            font-weight: bold;
+            padding: 10px;
+            background-color: lightgray;
+        }
+        tbody tr:nth-child(odd){        /* Efeito zebrado (celulas ímpar)*/
+
+            background-color: rgb(215, 245, 220);
+        }
+        tbody tr:nth-child(even){       /* Efeito zebrado (celulas par)*/
+            background-color: rgb(164, 184, 167);
+        }
+        th{
+            border: 1px solid black;
+            padding: 5px;
+            text-align: left;
+        }
+        .topoTabela{
+            background-color: rgb(100, 100, 100);
+            color: white;
+            border: 1px solid black;
+            padding: 5px;
+            text-align: center;
+            position: sticky;    /*Manter o cabeçaçalho fixo*/
+            top: -1px;
+        }
+        .titulo{
+            background-color: rgb(100, 100, 100);
+            color: white;
+            border: 1px solid black;
+            padding: 5px;
+            text-align: center;
+        }
+        td{
+            border: 1px solid black;
+            padding: 5px;
+        }
+        .num{
+            text-align: right;
+         
+        }
+        tfoot{
+            background-color: darkgray;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Uso de Tabelas Grandes</h1>
+    <!--
+        ANATOMIA DE TABELAS GRANDES
+        TABLE
+            CAPITON
+            THEAD
+                tr, td, th       (th é título)
+            TBODY
+                tr, td, th
+            TFOOT
+                tr, td, th
+    -->
+    <table>
+        <thead>
+            <caption>População das Unidades Federativas</caption>
+            <tr>
+                <th class="topoTabela" scope="col">Estado</th>
+                <th class="topoTabela" scope="col" style="width: 80px;">População</th>
+            </tr>
+        </thead>
+            <tr>
+                <th>São Paulo</th>
+                <td class="num">45.973.194</td>
+            </tr>
+            <tr>
+                <th>Minas Gerais</th>
+                <td class="num">21.322.691</td>
+            </tr>
+            <tr>
+                <th>Rio De Janeiro</th>
+                <td class="num">17.219.679	</td>
+            </tr>
+            <tr>
+                <th> Bahia</th>
+                <td class="num">14 141 626	</td>
+            </tr>
+            <tr>
+                <th>Paraná</th>
+                <td class="num">11 444 380		</td>
+            </tr>
+            <tr>
+                <th> Rio Grande do Sul</th>
+                <td class="num">10 882 965	</td>
+            </tr>
+            <tr>
+                <th> Pernambuco</th>
+                <td class="num">9 058 931	</td>
+            </tr>
+            <tr>
+                <th> Ceará</th>
+                <td class="num">8 794 957	</td>
+            </tr>
+            <tr>
+                <th> Pará</th>
+                <td class="num">8 120 131	</td>
+            </tr>
+            <tr>
+                <th>Santa Catarina</th>
+                <td class="num">7 610 361	</td>
+            </tr>
+            <tr>
+                <th> Goiás</th>
+                <td class="num">7 056 495	</td>
+            </tr>
+            <tr>
+                <th> Maranhão</th>
+                <td class="num">6 776 699	</td>
+            </tr>
+            <tr>
+                <th> Amazonas</th>
+                <td class="num">3 941 613	</td>
+            </tr>
+            <tr>
+                <th> Paraíba</th>
+                <td class="num">3 974 687	</td>
+            </tr>
+            <tr>
+                <th> Espírito Santo</th>
+                <td class="num">3 833 712		</td>
+            </tr>
+            <tr>
+                <th> Mato Grosso</th>
+                <td class="num">3 658 649	</td>
+            </tr>
+            <tr>
+                <th> Rio Grande do Norte</th>
+                <td class="num">3 302 729		</td>
+            </tr>
+            <tr>
+                <th>Piauí</th>
+                <td class="num">3 271 199	</td>
+            </tr>
+            <tr>
+                <th> Alagoas</th>
+                <td class="num">3 127 683	</td>
+            </tr>
+            <tr>
+                <th>  Distrito Federal</th>
+                <td class="num">2 817 381	</td>
+            </tr>
+             <tr>
+                <th>São Paulo</th>
+                <td class="num">45.973.194</td>
+            </tr>
+            <tr>
+                <th>Minas Gerais</th>
+                <td class="num">21.322.691</td>
+            </tr>
+            <tr>
+                <th>Rio De Janeiro</th>
+                <td class="num">17.219.679	</td>
+            </tr>
+            <tr>
+                <th> Bahia</th>
+                <td class="num">14 141 626	</td>
+            </tr>
+            <tr>
+                <th>Paraná</th>
+                <td class="num">11 444 380		</td>
+            </tr>
+            <tr>
+                <th> Rio Grande do Sul</th>
+                <td class="num">10 882 965	</td>
+            </tr>
+            <tr>
+                <th> Pernambuco</th>
+                <td class="num">9 058 931	</td>
+            </tr>
+            <tr>
+                <th> Ceará</th>
+                <td class="num">8 794 957	</td>
+            </tr>
+            <tr>
+                <th> Pará</th>
+                <td class="num">8 120 131	</td>
+            </tr>
+            <tr>
+                <th>Santa Catarina</th>
+                <td class="num">7 610 361	</td>
+            </tr>
+            <tr>
+                <th> Goiás</th>
+                <td class="num">7 056 495	</td>
+            </tr>
+            <tr>
+                <th> Maranhão</th>
+                <td class="num">6 776 699	</td>
+            </tr>
+            <tr>
+                <th> Amazonas</th>
+                <td class="num">3 941 613	</td>
+            </tr>
+            <tr>
+                <th> Paraíba</th>
+                <td class="num">3 974 687	</td>
+            </tr>
+            <tr>
+                <th> Espírito Santo</th>
+                <td class="num">3 833 712		</td>
+            </tr>
+            <tr>
+                <th> Mato Grosso</th>
+                <td class="num">3 658 649	</td>
+            </tr>
+            <tr>
+                <th> Rio Grande do Norte</th>
+                <td class="num">3 302 729		</td>
+            </tr>
+            <tr>
+                <th>Piauí</th>
+                <td class="num">3 271 199	</td>
+            </tr>
+            <tr>
+                <th> Alagoas</th>
+                <td class="num">3 127 683	</td>
+            </tr>
+            <tr>
+                <th>  Distrito Federal</th>
+                <td class="num">2 817 381	</td>
+            </tr>
+        <tbody>
+
+        </tbody>
+        <tfoot>
+            <th class="titulo" scope="row">Total de Habitantes</th>
+            <td class="titulo">0000</td>
+
+        </tfoot>
+    </table>
+</body>
+</html>
