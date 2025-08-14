@@ -15,3 +15,6 @@ menu{
 article::after{
     content: 'Esse artigo foi impresso!';
 }
+main article > p{
+    texta
+}
