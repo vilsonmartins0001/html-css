@@ -8,7 +8,7 @@
 html, body{
     width: 100vw;
     height: 100vh;
-    background-color: #23ff23;
+    background-color: #233eff;
     background-size: contain;
     background-repeat: no-repeat;
 
@@ -18,4 +18,6 @@ h1{
     color: white;
     text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.39);
     background-color: #1c30c7;
+    padding: 10px;
+    text-align: center;
 }
