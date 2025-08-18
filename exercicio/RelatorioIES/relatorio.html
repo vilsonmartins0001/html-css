@@ -4,8 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Relatório IES</title>
+    <style>
+        *{
+            margin: 0px;
+            pad: 0px;
+        }
+        section.conteiner {
+            
+            padding: 20px;
+            flex-flow: row wrap;
+        }
+        label.data-aula{
+            border: 1px solid black;
+            display: inline-block;
+        }
+        div.text-area{
+            height: 50px;
+        }
+
+    </style>
 </head>
 <body>
+    <main>
+       <section>
+        <table>
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Conteúdo ministrado</th>
+                    <th class="esp"></th>
+                    <th>Tarefas</th>
+                    <th class="esp"></th>
+                    <th>Operações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" name="data" id="idata"></td>
+                </tr>
+            </tbody>
+        </table>
+       </section>
+    </main>
     
 </body>
 </html>
