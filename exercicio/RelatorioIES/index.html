@@ -11,7 +11,7 @@
             overflow: hidden;
             flex-flow: row wrap;
         }
-        table {
+        table#tabela {
             width: 100%;
         }
         th{
@@ -28,47 +28,93 @@
 <body>
     <main>
         <h1>Exercicio de tabela</h1>
+        <p><button type="reset">Limpar</button> <button onclick="habilitarTodas()">Editar</button> <button onclick="salvarTudo()"> Salvar</button></p>
         <table id="tabela">
             <thead>
                 <tr>
-                <th></th>
-                <th>Semana</th>
-                <th>Data</th>
-                <th>Conteúdo ministrado</th>
-                <th>Tarefas</th>
-                <th>Operações</th>
+                    <th>Semana</th>
+                    <th>Data</th>
+                    <th>Conteúdo ministrado</th>
+                    <th>Tarefas</th>
+                    <th>Operações</th>
                 </tr>
           </thead>
           <tbody>
                 <tr>
                     <td><input type="checkbox" name="chec" id="ichec" ></td>
                     <td>1</td>
-                    <td><input type="date" value="2025-08-18" ></td>
-                    <td><textarea class="conteudo" name="conteudo">EE01CG02 GINCANA MOLHADA</textarea></td>
-                    <td><textarea class="tarefas" name="tarefas"></textarea></td>
-                    <td><button type="reset">Limpar</button> <button onclick="habilitar()">Editar</button></td>
+                    <td><input type="date" value="2025-08-18" readonly></td>
+                    <td><textarea class="conteudo" name="conteudo" readonly></textarea></td>
+                    <td><textarea class="tarefas" name="tarefas" readonly></textarea></td>
+                    
                 </tr>
                 <tr>
                     <td><input type="checkbox" name="chec" id="ichec" ></td>
-                    <td>1</td>
-                    <td><input type="date" value="2025-08-18" d></td>
-                    <td><textarea class="conteudo" id="area01" readonly>EE01CG02 GINCANA MOLHADA</textarea></td>
-                    <td><textarea class="tarefas" id="01"></textarea></td>
+                    <td>2</td>
+                    <td><input type="date" value="2025-08-18" readonly></td>
+                    <td><textarea class="conteudo" name="conteudo"readonly></textarea></td>
+                    <td><textarea class="tarefas" name="tarefas"readonly></textarea></td>
                     
                 </tr>
           </tbody>
         </table>
     </main> 
     <script>
-        function habilitar(){
-            const txaConteudo = document.getElementsByClassName("conteudo");
-            const txaTarefa = document.getElementsByClassName ("tarefas")
+        function habilitarTodas() {
+      // Seleciona todas as textareas da página
+      const areas = document.querySelectorAll("textarea");
+      
+      areas.forEach(area => {
+        if (area.hasAttribute("readonly")) {
+          area.removeAttribute("readonly");
+        }
+        if (area.hasAttribute("disabled")) {
+          area.removeAttribute("disabled");
+        }
+      });
 
-            if (txaConteudo.hasAttribute("readonly") & txaTarefa.hasAttribute("readonly")){
-                txaTarefa.removeAttribute("readonly") & txaConteudo.removeAttribute("readonly");
+      alert("Todas as caixas foram habilitadas para edição!");
+    }
+            
+        function salvarTudo(){
+            const tabela = document.getElementById("tabela").getElementsByTagName(tbody)[1];
+            const linhas = tabela.getElementsByTagName("tr");
+            let dados = [];
+
+            for (let i = 0; i < linhas.length; i++){
+                const colunas = linhas[i].getElementsByTagName("td");
+                const semana = colunas[0].innerText;
+                const data = colunas[1].queryselector("input").value;
+                const conteudo = colunas[2].queryselector("textarea").value;
+                const tarefas = colunas[3].queryselector("textarea").value;
+
+                dados.push({semana, data, conteudo, tarefas});
             }
+            localStorage.setItem("tabelaAulas", JSON.stringify(dados));
+            alert("Todos os dados foram salvos!");
             
         }
+        function carregarTudo(){
+            const dadosSalvos = localStorage.getItem(tabelaAulas);
+            if(!dadosSalvos) {
+                alert("Nenhum dado salvo!");
+                return;
+            }
+            const dados = JSON.parse(dadosSalvos);
+            const tabela = document.getElementById("tabela").getElementsByTagName("tbody")[0];
+            const linhas = document.getElementsByTagName("td");
+
+            for (let i = 0; i < linhas.length && i <dados.length; i++){
+                const colunas = linhas.getElementsByTagName("td");
+                colunas[1].queryselector("input").value = dados[i].data
+                colunas[2].queryselector("textarea").value = dados[i].conteudo
+                colunas[3].queryselector("textarea").value = dados[i].tarefas
+            }
+            alert("dados carregado com sucesso!")
+
+        }
+         window.onload = carregarTudo;
+
 
     </script>
 
