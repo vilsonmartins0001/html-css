@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tabela</title>
+    <style>
+        main {
+            background-color: rgb(249, 252, 255);
+            width: 80vw;
+            overflow: hidden;
+            flex-flow: row wrap;
+        }
+        table {
+            width: 100%;
+        }
+        th{
+            background-color: lightgray;
+            padding: 8px;
+        }
+        td {
+            border: 1px solid black;
+            width: 40px;
+        
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Exercicio de tabela</h1>
+        <table id="tabela">
+            <thead>
+                <tr>
+                <th></th>
+                <th>Semana</th>
+                <th>Data</th>
+                <th>Conteúdo ministrado</th>
+                <th>Tarefas</th>
+                <th>Operações</th>
+                </tr>
+          </thead>
+          <tbody>
+                <tr>
+                    <td><input type="checkbox" name="chec" id="ichec" ></td>
+                    <td>1</td>
+                    <td><input type="date" value="2025-08-18" ></td>
+                    <td><textarea class="conteudo" name="conteudo">EE01CG02 GINCANA MOLHADA</textarea></td>
+                    <td><textarea class="tarefas" name="tarefas"></textarea></td>
+                    <td><button type="reset">Limpar</button> <button onclick="habilitar()">Editar</button></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="chec" id="ichec" ></td>
+                    <td>1</td>
+                    <td><input type="date" value="2025-08-18" d></td>
+                    <td><textarea class="conteudo" id="area01" readonly>EE01CG02 GINCANA MOLHADA</textarea></td>
+                    <td><textarea class="tarefas" id="01"></textarea></td>
+                    
+                </tr>
+          </tbody>
+        </table>
+    </main> 
+    <script>
+        function habilitar(){
+            const txaConteudo = document.getElementsByClassName("conteudo");
+            const txaTarefa = document.getElementsByClassName ("tarefas")
+
+            if (txaConteudo.hasAttribute("readonly") & txaTarefa.hasAttribute("readonly")){
+                txaTarefa.removeAttribute("readonly") & txaConteudo.removeAttribute("readonly");
+            }
+            
+        }
+
+    </script>
+
+    
+</body>
+</html>

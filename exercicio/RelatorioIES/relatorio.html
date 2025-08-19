@@ -1,51 +1,102 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relatório IES</title>
-    <style>
-        *{
-            margin: 0px;
-            pad: 0px;
-        }
-        section.conteiner {
-            
-            padding: 20px;
-            flex-flow: row wrap;
-        }
-        label.data-aula{
-            border: 1px solid black;
-            display: inline-block;
-        }
-        div.text-area{
-            height: 50px;
-        }
-
-    </style>
+  <meta charset="UTF-8">
+  <title>Diário de Aulas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: center;
+      vertical-align: middle;
+    }
+    th {
+      background: #eee;
+    }
+    textarea {
+      width: 95%;
+      height: 40px;
+    }
+    .btn-editar {
+      background: #3498db;
+      border: none;
+      color: white;
+      padding: 6px 12px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .btn-editar:hover {
+      background: #2980b9;
+    }
+    .operacoes {
+      color: #555;
+      font-size: 12px;
+    }
+  </style>
 </head>
 <body>
-    <main>
-       <section>
-        <table>
-            <thead>
-                <tr>
-                    <th>Data</th>
-                    <th>Conteúdo ministrado</th>
-                    <th class="esp"></th>
-                    <th>Tarefas</th>
-                    <th class="esp"></th>
-                    <th>Operações</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><input type="text" name="data" id="idata"></td>
-                </tr>
-            </tbody>
-        </table>
-       </section>
-    </main>
-    
+
+<h2>Registro de Aulas Ministradas</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Número</th>
+      <th>Data</th>
+      <th>Conteúdo ministrado</th>
+      <th>Tarefas</th>
+      <th>Operações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><input type="checkbox"></td>
+      <td>1</td>
+      <td>05/02/2025</td>
+      <td><textarea>EE01EF05 SHOW MUSICAL:TIO LEO</textarea></td>
+      <td><textarea></textarea></td>
+      <td>
+        <button class="btn-editar">Editar</button><br>
+        <span class="operacoes">Chamada online não disponível</span>
+      </td>
+    </tr>
+    <tr>
+      <td><input type="checkbox"></td>
+      <td>2</td>
+      <td>05/02/2025</td>
+      <td><textarea>EE01ET06 ESCORREGADOR E BALANÇO</textarea></td>
+      <td><textarea></textarea></td>
+      <td>
+        <button class="btn-editar">Editar</button><br>
+        <span class="operacoes">Chamada online não disponível</span>
+      </td>
+    </tr>
+    <tr>
+      <td><input type="checkbox"></td>
+      <td>3</td>
+      <td>05/02/2025</td>
+      <td><textarea>EE01CG02 GINCANA MOLHADA</textarea></td>
+      <td><textarea></textarea></td>
+      <td>
+        <button class="btn-editar">Editar</button><br>
+        <span class="operacoes">Chamada online não disponível</span>
+      </td>
+    </tr>
+    <!-- Você pode repetir mais linhas conforme necessário -->
+  </tbody>
+</table>
+
 </body>
 </html>
