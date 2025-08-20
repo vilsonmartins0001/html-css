@@ -32,6 +32,7 @@
         <table id="tabela">
             <thead>
                 <tr>
+                    <th>selecione</th>
                     <th>Semana</th>
                     <th>Data</th>
                     <th>Conteúdo ministrado</th>
@@ -43,7 +44,7 @@
                 <tr>
                     <td><input type="checkbox" name="chec" id="ichec" ></td>
                     <td>1</td>
-                    <td><input type="date" value="2025-08-18" readonly></td>
+                    <td><span>19/082025</span></td>
                     <td><textarea class="conteudo" name="conteudo" readonly></textarea></td>
                     <td><textarea class="tarefas" name="tarefas" readonly></textarea></td>
                     
@@ -75,47 +76,7 @@
 
       alert("Todas as caixas foram habilitadas para edição!");
     }
-            
-        function salvarTudo(){
-            const tabela = document.getElementById("tabela").getElementsByTagName(tbody)[1];
-            const linhas = tabela.getElementsByTagName("tr");
-            let dados = [];
-
-            for (let i = 0; i < linhas.length; i++){
-                const colunas = linhas[i].getElementsByTagName("td");
-                const semana = colunas[0].innerText;
-                const data = colunas[1].queryselector("input").value;
-                const conteudo = colunas[2].queryselector("textarea").value;
-                const tarefas = colunas[3].queryselector("textarea").value;
-
-                dados.push({semana, data, conteudo, tarefas});
-            }
-            localStorage.setItem("tabelaAulas", JSON.stringify(dados));
-            alert("Todos os dados foram salvos!");
-            
-        }
-        function carregarTudo(){
-            const dadosSalvos = localStorage.getItem(tabelaAulas);
-            if(!dadosSalvos) {
-                alert("Nenhum dado salvo!");
-                return;
-            }
-            const dados = JSON.parse(dadosSalvos);
-            const tabela = document.getElementById("tabela").getElementsByTagName("tbody")[0];
-            const linhas = document.getElementsByTagName("td");
-
-            for (let i = 0; i < linhas.length && i <dados.length; i++){
-                const colunas = linhas.getElementsByTagName("td");
-                colunas[1].queryselector("input").value = dados[i].data
-                colunas[2].queryselector("textarea").value = dados[i].conteudo
-                colunas[3].queryselector("textarea").value = dados[i].tarefas
-            }
-            alert("dados carregado com sucesso!")
-
-        }
-         window.onload = carregarTudo;
-
-
+  
     </script>
 
     
