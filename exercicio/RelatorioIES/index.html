@@ -42,7 +42,7 @@
           </thead>
           <tbody>
                 <tr>
-                    <td><input type="checkbox" name="chec" id="ichec" ></td>
+                    <td><input type="checkbox" name="select" id="iselect" ></td>
                     <td>1</td>
                     <td><span>19/082025</span></td>
                     <td><textarea class="conteudo" name="conteudo" readonly></textarea></td>
@@ -50,7 +50,7 @@
                     
                 </tr>
                 <tr>
-                    <td><input type="checkbox" name="chec" id="ichec" ></td>
+                    <td><input type="checkbox" name="select" id="iselect" ></td>
                     <td>2</td>
                     <td><input type="date" value="2025-08-18" readonly></td>
                     <td><textarea class="conteudo" name="conteudo"readonly></textarea></td>
@@ -75,7 +75,32 @@
       });
 
       alert("Todas as caixas foram habilitadas para edição!");
-    }
+        }
+        
+         function salvarTudo() {
+            const areas = document.querySelectorAll("textarea");
+            let dados = [];
+            
+            areas.forEach(area => {
+                area.setAttribute("readonly", true);
+                dados.push(area.value);
+            });
+
+            // Salva como string no navegador
+            localStorage.setItem("tabelaConteudo", JSON.stringify(dados));
+            alert("Conteúdo salvo com sucesso!");
+        }
+         // Carregar dados ao abrir a página
+        window.onload = function() {
+            const dadosSalvos = JSON.parse(localStorage.getItem("tabelaConteudo"));
+            if (dadosSalvos) {
+                const areas = document.querySelectorAll("textarea");
+                areas.forEach((area, i) => {
+                    area.value = dadosSalvos[i] || "";
+                    area.setAttribute("readonly", true);
+                });
+            }
+        }
   
     </script>
 
