@@ -21,8 +21,19 @@
     }
     td {
       border: 1px solid black;
-      width: 40px;
+      width: 250px;
       padding: 4px;
+    }
+    .selc{
+        width: 30px;
+        padding: 4px;
+        text-align: center;
+    }
+    .dt{
+        width: 100px;
+    }
+    .sem{
+        width: 100px;
     }
     textarea {
       width: 100%;
@@ -47,33 +58,34 @@
           <th><input type="checkbox" name="master" id="imaster">Selecione</th>
           <th>Conteúdo ministrado</th>
           <th>Tarefas</th>
+          <th>Operações</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td rowspan="5">1</td>
-          <td rowspan="5"><span>19/08/2025</span></td>
-          <td><input type="checkbox" class="horario"> 1°</td>
+          <td class="sem" rowspan="5">1</td>
+          <td rowspan="5" class="dt"><span>19/08/2025</span></td>
+          <td class="selc"><input type="checkbox" class="horario"> 1°</td>
           <td><textarea data-id="sem1-conteudo1" readonly></textarea></td>
           <td><textarea data-id="sem1-tarefa1" readonly></textarea></td>
         </tr>
         <tr>
-          <td><input type="checkbox" class="horario"> 2°</td>
+          <td class="selc"><input type="checkbox" class="horario"> 2°</td>
           <td><textarea data-id="sem1-conteudo2" readonly></textarea></td>
           <td><textarea data-id="sem1-tarefa2" readonly></textarea></td>
         </tr>
         <tr>
-          <td><input type="checkbox" class="horario"> 3°</td>
+          <td class="selc"><input type="checkbox" class="horario"> 3°</td>
           <td><textarea data-id="sem1-conteudo3" readonly></textarea></td>
           <td><textarea data-id="sem1-tarefa3" readonly></textarea></td>
         </tr>
         <tr>
-          <td><input type="checkbox" class="horario"> 4°</td>
+          <td class="selc"><input type="checkbox" class="horario"> 4°</td>
           <td><textarea data-id="sem1-conteudo4" readonly></textarea></td>
           <td><textarea data-id="sem1-tarefa4" readonly></textarea></td>
         </tr>
         <tr>
-          <td><input type="checkbox" class="horario"> 5°</td>
+          <td class="selc"><input type="checkbox" class="horario"> 5°</td>
           <td><textarea data-id="sem1-conteudo5" readonly></textarea></td>
           <td><textarea data-id="sem1-tarefa5" readonly></textarea></td>
         </tr>
