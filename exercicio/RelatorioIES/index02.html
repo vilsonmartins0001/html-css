@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabela</title>
+  <style>
+    main {
+      background-color: rgb(249, 252, 255);
+      width: 80vw;
+      overflow: hidden;
+      flex-flow: row wrap;
+    }
+    table#tabela {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th {
+      background-color: lightgray;
+      padding: 8px;
+    }
+    td {
+      border: 1px solid black;
+      width: 40px;
+      padding: 4px;
+    }
+    textarea {
+      width: 100%;
+      height: 50px;
+      resize: vertical;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Exercício de tabela</h1>
+    <p>
+      <button onclick="limparTudo()">Limpar</button>
+      <button onclick="habilitarTodas()">Editar</button>
+      <button onclick="salvarTudo()">Salvar</button>
+    </p>
+    <table id="tabela">
+      <thead>
+        <tr>
+          <th>Semana</th>
+          <th>Data</th>
+          <th><input type="checkbox" name="master" id="imaster">Selecione</th>
+          <th>Conteúdo ministrado</th>
+          <th>Tarefas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="5">1</td>
+          <td rowspan="5"><span>19/08/2025</span></td>
+          <td><input type="checkbox" class="horario"> 1°</td>
+          <td><textarea data-id="sem1-conteudo1" readonly></textarea></td>
+          <td><textarea data-id="sem1-tarefa1" readonly></textarea></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="horario"> 2°</td>
+          <td><textarea data-id="sem1-conteudo2" readonly></textarea></td>
+          <td><textarea data-id="sem1-tarefa2" readonly></textarea></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="horario"> 3°</td>
+          <td><textarea data-id="sem1-conteudo3" readonly></textarea></td>
+          <td><textarea data-id="sem1-tarefa3" readonly></textarea></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="horario"> 4°</td>
+          <td><textarea data-id="sem1-conteudo4" readonly></textarea></td>
+          <td><textarea data-id="sem1-tarefa4" readonly></textarea></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="horario"> 5°</td>
+          <td><textarea data-id="sem1-conteudo5" readonly></textarea></td>
+          <td><textarea data-id="sem1-tarefa5" readonly></textarea></td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+
+  <script>
+    const STORAGE_KEY = "tabelaConteudo";
+    //selecionar todos checbox
+
+    const master = document.getElementById("imaster");
+    const itens = document.querySelectorAll(".horario");
+
+    master.addEventListener("change", function () {
+    itens.forEach(item => {
+      item.checked = master.checked; // se master está marcado → todos marcam
+    });
+  });
+
+
+    // Habilita edição
+    function habilitarTodas() {
+    
+      document.querySelectorAll("textarea").forEach(area => {
+        area.readOnly = false;
+      });
+      console.log("Edição habilitada.");
+    }
+
+    // Salva todos os campos
+    function salvarTudo() {
+      const dados = {};
+      document.querySelectorAll("textarea").forEach(area => {
+        area.readOnly = true;
+        dados[area.dataset.id] = area.value; // chave = data-id
+      });
+
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(dados));
+      console.log("Conteúdo salvo!");
+    }
+
+    // Limpa tudo
+    function limparTudo() {
+      localStorage.removeItem(STORAGE_KEY);
+      document.querySelectorAll("textarea").forEach(area => {
+        area.value = "";
+        area.readOnly = true;
+      });
+      console.log("Todos os dados foram apagados.");
+    }
+
+    // Carrega dados ao abrir
+    window.addEventListener("DOMContentLoaded", () => {
+      try {
+        const salvo = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+        document.querySelectorAll("textarea").forEach(area => {
+          area.value = salvo[area.dataset.id] ?? "";
+          area.readOnly = true;
+        });
+        console.log("Dados carregados.");
+      } catch (e) {
+        console.error("Erro ao carregar dados do localStorage:", e);
+        localStorage.removeItem(STORAGE_KEY); // limpa se o JSON estiver corrompido
+      }
+    });
+  </script>
+</body>
+</html>
